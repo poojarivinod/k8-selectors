@@ -1,0 +1,16 @@
+# copy from k8-resource --> volume --> 02-ebs-static-pvc.yaml --> pod. Do some changes 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-selector
+  labels:
+    purpose: "selector-demo"
+spec:
+  # kubernetes --> search as nodeselector --> click on Assigning Pods to Nodes | Kubernetes --> nodeSelector --> click on Assign Pods to Nodes
+  # In terminal --> kubectl get nodes --show-labels --> topology.kubernetes.io/zone= is a key value
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1b # it should be same availability as the volume
+  containers:
+  - name: nginx
+    image: nginx
+    
