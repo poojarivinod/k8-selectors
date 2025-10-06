@@ -2,14 +2,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: node-selector
+  name: taint
   labels:
-    purpose: "selector-demo"
+    purpose: "taint-demo"
 spec:
   # kubernetes --> search as nodeselector --> click on Assigning Pods to Nodes | Kubernetes --> nodeSelector --> click on Assign Pods to Nodes
   # In terminal --> kubectl get nodes --show-labels --> topology.kubernetes.io/zone= is a key value
+  # if we give zone other than cluster node zone, pod status continuously show as pending 
   nodeSelector:
-    topology.kubernetes.io/zone: us-east-1b # it should be same availability as the volume
+    topology.kubernetes.io/zone: us-east-1d # it should be same availability as the volume
   containers:
   - name: nginx
     image: nginx
