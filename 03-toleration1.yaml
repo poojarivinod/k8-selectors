@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: tolerations1
+  name: toleration1
   labels:
     purpose: "tolerations-demo"
 spec:

@@ -1,0 +1,17 @@
+# copy from k8-resource --> volume --> 02-ebs-static-pvc.yaml --> pod. Do some changes 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: toleration2
+  labels:
+    purpose: "tolerations-demo"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  #seach in google as k8-taint and taloeration --> click on kubernetes 
+  tolerations:
+  - key: "hardware"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoExecute"
