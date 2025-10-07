@@ -1,0 +1,9 @@
+# search as kubernetes --> click on kubernetes --> search as pod affinity
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-1
+spec:
+  containers:
+  - name: with-pod-affinity
+    image: registry.k8s.io/pause:3.8
