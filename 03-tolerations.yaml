@@ -1,8 +1,9 @@
+# It is without toleration
 # copy from k8-resource --> volume --> 02-ebs-static-pvc.yaml --> pod. Do some changes 
 apiVersion: v1
 kind: Pod
 metadata:
-  name: tolerations
+  name: tolerations1
   labels:
     purpose: "tolerations-demo"
 spec:
@@ -14,13 +15,3 @@ spec:
   containers:
   - name: nginx
     image: nginx
-  #seach in google as k8-taint and taloeration --> click on kubernetes 
-  tolerations:
-  - key: "hardware"
-    operator: "Equal"
-    value: "gpu"
-    effect: "NoSchedule"
-  - key: "hardware"
-    operator: "Equal"
-    value: "gpu"
-    effect: "NoExecute"
