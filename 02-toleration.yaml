@@ -1,0 +1,27 @@
+# copy from k8-resource --> volume --> 02-ebs-static-pvc.yaml --> pod. Do some changes 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tolerations
+  labels:
+    purpose: "tolerations-demo"
+spec:
+  # kubernetes --> search as nodeselector --> click on Assigning Pods to Nodes | Kubernetes --> nodeSelector --> click on Assign Pods to Nodes
+  # In terminal --> kubectl get nodes --show-labels --> topology.kubernetes.io/zone= is a key value
+  # if we give zone other than cluster node zone, pod status continuously show as pending 
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1a # it should be same availability as the volume
+  containers:
+  - name: nginx
+    image: nginx
+  #seach in google as k8-taint and taloeration --> click on kubernetes 
+  tolerations:
+  - key: "hardware"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoSchedule"
+  tolerations:
+  - key: "hardware"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoExecute"
