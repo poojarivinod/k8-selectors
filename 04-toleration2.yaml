@@ -1,3 +1,4 @@
+# pod can be scheduled in either tainted node or non tainted node
 # copy from k8-resource --> volume --> 02-ebs-static-pvc.yaml --> pod. Do some changes 
 apiVersion: v1
 kind: Pod
