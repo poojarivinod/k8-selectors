@@ -2,9 +2,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: toleration2
+  name: affinity
   labels:
-    purpose: "tolerations-demo"
+    purpose: "affinity-demo"
 spec:
   # search as kubernetes--> click on kubernetes--> search as affinity
   affinity:
